@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dev_algoritmiek_inf2d.iml" filepath="$PROJECT_DIR$/dev_algoritmiek_inf2d.iml" />
       <module fileurl="file://$PROJECT_DIR$/scenario1/scenario1.iml" filepath="$PROJECT_DIR$/scenario1/scenario1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scenario2/scenario2.iml" filepath="$PROJECT_DIR$/scenario2/scenario2.iml" />
     </modules>
   </component>
 </project>
