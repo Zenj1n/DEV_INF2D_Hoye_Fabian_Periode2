@@ -1,10 +1,8 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 /**
- * Created by Fabian on 13-1-2015.
+ * Created by Hoye on 13-1-2015.
  */
 public class Klant {
 
@@ -17,43 +15,42 @@ public class Klant {
     static String plaats;
     static String email;
 
-    public static void main (String[] args)
-    {
+    static Queue<String> queue = new LinkedList<String>();
 
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("Voer uw achternaam in ");
-        achternaam = in.nextLine();
-        System.out.println("Uw achternaam is " + achternaam);
-
-        System.out.println("Voer uw voornaam in ");
-        voornaam = in.nextLine();
-        System.out.println("Uw voornaam is " + voornaam);
-
-        System.out.println("Voer uw leeftijd in ");
-        leeftijd = in.nextInt();
-        System.out.println("Uw leeftijd is " + leeftijd);
-
-        System.out.println("Voer uw geslacht in M of V");
-        geslacht = in.nextLine();
-        System.out.println("Uw geslacht is " + geslacht);
-
-        System.out.println("Voer uw woonplaats in ");
-        plaats = in.nextLine();
-        System.out.println("Uw achternaam is " + plaats);
-
-        System.out.println("Voer uw e-mailadress in ");
-        email = in.nextLine();
-        System.out.println("Uw email is " + email);
-
-        String uniqueID = UUID.randomUUID().toString();
-        klantid = uniqueID;
-        klant.add(klantid);
-        System.out.println("Uw klantID is " + klantid);
+    private static Klant queueInstance = null;
+    public static Klant getStreamInstance() {
+        if (queueInstance == null){
+            queueInstance = new Klant();
+        }
+        return queueInstance;
     }
 
-    public void voegKlant(){
-        klant.add(klantid);
-        voegKlant();
+    public Queue<String> get (){
+        return queue;
+    }
+
+    public void addKlant(String value){
+        synchronized (queue) {
+            queue.add(value);
+        }
+    }
+
+    public void removeKlant (String value){
+        synchronized (queue){
+            queue.remove(value);
+        }
+    }
+
+    public String poll(){
+        String data = queue.poll();
+        return data;
+    }
+
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+    public int getTotalSize(){
+        return queue.size();
     }
 }
