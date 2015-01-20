@@ -1,7 +1,7 @@
 /**
  * Created by Fabian on 13-1-2015.
  */
-public class Klant {
+public class Klant implements Comparable<Klant> {
     int klantid;
     String achternaam;
     String voornaam;
@@ -20,5 +20,9 @@ public class Klant {
         this.email = email;
 
         return;
+    }
+
+    public int compareTo(Klant klant) {
+        return klant.leeftijd > this.leeftijd  ? 0 : -1;
     }
 }
