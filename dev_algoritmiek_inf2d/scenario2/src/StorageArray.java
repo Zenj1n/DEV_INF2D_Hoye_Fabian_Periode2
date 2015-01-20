@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -9,9 +8,6 @@ public class StorageArray {
     static int index = 0;
     static Klant[] array = new Klant[100];
     static Random randomGenerator = new Random();
-    private int[] numbers;
-    private int[] helper;
-    private int number;
 
 
     public static void main(String[] args){
@@ -23,6 +19,7 @@ public class StorageArray {
         sa.addInfo("Lie", "Mike", 29, "m", "Leeuwarden", "hallo4@live.nl");
 
         System.out.println(array[4].leeftijd);
+        System.out.println(array[0].compareTo(array[3]));
 
     }
 
@@ -33,55 +30,62 @@ public class StorageArray {
          index++;
      }
 
-    public void sort(int[] values) {
-        this.numbers = values;
-        number = values.length;
-        this.helper = new int[number];
-        mergesort(0, number - 1);
+    public static void mergeSort( Comparable [ ] a )
+    {
+        Comparable [ ] tmpArray = new Comparable[ array.length ];
+
+        mergeSort( a, tmpArray, 0, array.length - 1 );
     }
 
-    private void mergesort(int low, int high) {
-        // check if low is smaller then high, if not then the array is sorted
-        if (low < high) {
-            // Get the index of the element which is in the middle
-            int middle = low + (high - low) / 2;
-            // Sort the left side of the array
-            mergesort(low, middle);
-            // Sort the right side of the array
-            mergesort(middle + 1, high);
-            // Combine them both
-            merge(low, middle, high);
+    /**
+     * Internal method that makes recursive calls.
+     * @param a an array of Comparable items.
+     * @param tmpArray an array to place the merged result.
+     * @param left the left-most index of the subarray.
+     * @param right the right-most index of the subarray.
+     */
+    private static void mergeSort( Comparable [ ] a, Comparable [ ] tmpArray,
+                                   int left, int right )
+    {
+        if( left < right )
+        {
+            int center = ( left + right ) / 2;
+            mergeSort( a, tmpArray, left, center );
+            mergeSort( a, tmpArray, center + 1, right );
+            merge( a, tmpArray, left, center + 1, right );
         }
     }
 
-    private void merge(int low, int middle, int high) {
+    /**
+     * Internal method that merges two sorted halves of a subarray.
+     * @param a an array of Comparable items.
+     * @param tmpArray an array to place the merged result.
+     * @param leftPos the left-most index of the subarray.
+     * @param rightPos the index of the start of the second half.
+     * @param rightEnd the right-most index of the subarray.
+     */
+    private static void merge( Comparable [ ] a, Comparable [ ] tmpArray,
+                               int leftPos, int rightPos, int rightEnd )
+    {
+        int leftEnd = rightPos - 1;
+        int tmpPos = leftPos;
+        int numElements = rightEnd - leftPos + 1;
 
-        // Copy both parts into the helper array
-        for (int i = low; i <= high; i++) {
-            helper[i] = numbers[i];
-        }
+        // Main loop
+        while( leftPos <= leftEnd && rightPos <= rightEnd )
+            if( a[ leftPos ].compareTo( a[ rightPos ] ) <= 0 )
+                tmpArray[ tmpPos++ ] = a[ leftPos++ ];
+            else
+                tmpArray[ tmpPos++ ] = a[ rightPos++ ];
 
-        int i = low;
-        int j = middle + 1;
-        int k = low;
-        // Copy the smallest values from either the left or the right side back
-        // to the original array
-        while (i <= middle && j <= high) {
-            if (helper[i] <= helper[j]) {
-                numbers[k] = helper[i];
-                i++;
-            } else {
-                numbers[k] = helper[j];
-                j++;
-            }
-            k++;
-        }
-        // Copy the rest of the left side of the array into the target array
-        while (i <= middle) {
-            numbers[k] = helper[i];
-            k++;
-            i++;
-        }
+        while( leftPos <= leftEnd )    // Copy rest of first half
+            tmpArray[ tmpPos++ ] = a[ leftPos++ ];
 
+        while( rightPos <= rightEnd )  // Copy rest of right half
+            tmpArray[ tmpPos++ ] = a[ rightPos++ ];
+
+        // Copy tmpArray back
+        for( int i = 0; i < numElements; i++, rightEnd-- )
+            a[ rightEnd ] = tmpArray[ rightEnd ];
     }
 }
