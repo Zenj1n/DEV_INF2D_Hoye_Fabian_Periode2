@@ -25,15 +25,7 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db6b6bf-9ca9-4ad1-88ed-2003923bd5c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scenario2/src/MergeSort.java" />
-      <change type="DELETED" beforePath="E:\Repositories Git Hub\DEV_INF2D_Hoye_Fabian_Periode2\dev_algoritmiek_inf2d\out\production\scenario2\StorageArray.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="E:\Repositories Git Hub\DEV_INF2D_Hoye_Fabian_Periode2\dev_algoritmiek_inf2d\out\production\scenario1\Bestelling.class" afterPath="E:\Repositories Git Hub\DEV_INF2D_Hoye_Fabian_Periode2\dev_algoritmiek_inf2d\out\production\scenario1\Bestelling.class" />
-      <change type="MODIFICATION" beforePath="E:\Repositories Git Hub\DEV_INF2D_Hoye_Fabian_Periode2\dev_algoritmiek_inf2d\out\production\scenario2\Klant.class" afterPath="E:\Repositories Git Hub\DEV_INF2D_Hoye_Fabian_Periode2\dev_algoritmiek_inf2d\out\production\scenario2\Klant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenario2/src/Klant.java" afterPath="$PROJECT_DIR$/scenario2/src/Klant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scenario2/src/StorageArray.java" afterPath="$PROJECT_DIR$/scenario2/src/StorageArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6db6b6bf-9ca9-4ad1-88ed-2003923bd5c6" name="Default" comment="" />
     <ignored path="dev_algoritmiek_inf2d.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -523,7 +515,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32312566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32312566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.121875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
