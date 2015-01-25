@@ -16,14 +16,15 @@ public class StorageArray {
         StorageArray sa = new StorageArray();
         LinearSearch ls = new LinearSearch();
         InsertionSort is = new InsertionSort();
+        BinarySearch bs = new BinarySearch();
         Scanner in = new Scanner(System.in);
 
         int keuze;
 
-        sa.addInfo(array, "Doe", "John", 18, "m", "Rotterdam", "hallo@live.nl");
-        sa.addInfo(array, "Do", "Jon", 32, "m", "Amsterdam", "hallo1@live.nl");
-        sa.addInfo(array, "De", "Joh", 44, "m", "Leiden", "hallo2@live.nl");
-        sa.addInfo(array, "Lee", "Mike", 8, "m", "Brabant", "hallo3@live.nl");
+        sa.addInfo(array, "Amon", "Jon", 32, "m", "Amsterdam", "hallo1@live.nl");
+        sa.addInfo(array, "Boe", "Jon", 89, "v", "Amsterdam", "hallo1@live.nl");
+        sa.addInfo(array, "Boe", "Joh", 44, "m", "Leiden", "hallo2@live.nl");
+        sa.addInfo(array, "Cena", "Mike", 8, "m", "Brabant", "hallo3@live.nl");
 
         System.out.println("Ongesorteerd");
         for (int i = 0; i < array.length; i++) {
@@ -38,11 +39,18 @@ public class StorageArray {
         keuze = in.nextInt();
         ls.linearSearch(array , keuze);
 
-        is.selectionSort(array);
-        System.out.println("Gesorteerd met de insertion sort");
         for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i].leeftijd);
+            System.out.println(array[i].achternaam);
         }
+
+        is.insertionSort(array);
+        System.out.println("Gesorteerd met de insertion sort op achternaam");
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i].achternaam);
+        }
+        System.out.println("Op welke achternaam wilt u zoeken (BinarySeacg)");
+        String zoek = in.nextLine();
+        bs.binarySearch(array, zoek, 0, 3);
     }
 
 

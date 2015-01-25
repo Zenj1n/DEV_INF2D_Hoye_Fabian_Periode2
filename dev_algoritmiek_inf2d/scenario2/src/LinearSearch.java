@@ -101,9 +101,9 @@ public class LinearSearch {
         }
         System.out.println("Wilt u nog een keer zoeken? (j/n)");
         opnieuw = in.nextLine();
-        if(opnieuw.equals("j")){
+        if (opnieuw.equals("j")) {
             linearSearch(array, keuze);
-        }else{
+        } else {
             System.out.println("Bedankt voor het gebruiken van de zoek functie");
         }
 
