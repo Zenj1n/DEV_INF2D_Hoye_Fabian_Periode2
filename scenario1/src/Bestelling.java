@@ -112,7 +112,7 @@ public class Bestelling extends Klant{
         Integer i = 0;
 
         for (i = 0; i < queue.size(); i++){
-            if (current_tijd_ob <= compleet_tijd_ob)
+            if (current_tijd_ob >= compleet_tijd_ob)
             {
                 Verwerking = false;
                 Dadelijk = false;
