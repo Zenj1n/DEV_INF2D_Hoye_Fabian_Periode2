@@ -6,14 +6,16 @@ import java.util.*;
  */
 public class Klant {
 
-    static ArrayList klant = new ArrayList();
-    static String klantid;
     static String achternaam;
     static String voornaam;
     static int leeftijd;
     static String geslacht;
     static String plaats;
     static String email;
+
+    static boolean Compleet = false;
+    static boolean Dadelijk = true;
+    static boolean Verwerking = true;
 
     static Queue<String> queue = new LinkedList<String>();
 
@@ -33,24 +35,12 @@ public class Klant {
         synchronized (queue) {
             queue.add(value);
         }
-    }
-
-    public void removeKlant (String value){
-        synchronized (queue){
-            queue.remove(value);
-        }
-    }
+}
 
     public String poll(){
         String data = queue.poll();
         return data;
     }
 
-    public boolean isEmpty() {
-        return queue.isEmpty();
-    }
 
-    public int getTotalSize(){
-        return queue.size();
-    }
 }

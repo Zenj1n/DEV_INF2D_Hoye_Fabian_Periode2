@@ -19,10 +19,7 @@ public class Bestelling extends Klant{
     static int klantid = randomGenerator.nextInt(1000);
     static int bestellingid = randomGenerator.nextInt(1000);
 
-    static boolean Verwerking;
     static String Duur = "1 minuut";
-    static boolean Compleet;
-    static boolean Dadelijk;
 
     static String compleet_tijd = "";
     static String start_tijd = "";
@@ -94,10 +91,6 @@ public class Bestelling extends Klant{
         compleet_tijd = sdf.format(cal2.getTime());
         start_tijd = sdf.format(cal.getTime());
 
-        Verwerking = true;
-        Dadelijk = true;
-        Compleet = false;
-
         test.addKlant(voornaam + " " + achternaam + " Klant id: " + klantid + " bestelling id: " + bestellingid + " klaar rond: "
                 + compleet_tijd + " start tijd: "+ start_tijd+ " Verwerking: " + Verwerking + " Dadelijk: " + Dadelijk + " Compleet :"
                 + Compleet + " Bestelling klaar in: " + Duur + "Na starttijd");
@@ -114,14 +107,19 @@ public class Bestelling extends Klant{
         DateFormat sdf = new SimpleDateFormat("HH:mm");
         String current_tijd = sdf.format(cal.getTime());
 
+        int compleet_tijd_ob = Integer.parseInt(compleet_tijd.replace(":",""));
+        int current_tijd_ob = Integer.parseInt(current_tijd.replace(":",""));
+        System.out.println(compleet_tijd);
+        System.out.println(current_tijd);
         Integer i = 0;
 
         for (i = 0; i < queue.size(); i++){
-            if (current_tijd != compleet_tijd)
+            if (current_tijd_ob <= compleet_tijd_ob)
             {
                 Verwerking = false;
                 Dadelijk = false;
-                Compleet = true;
+                Compleet= true;
+
                 System.out.println("De volgende klant is klaar: " + Compleet + test.poll());
                 System.out.println("Queue is momenteel:" + test.get());
             }
