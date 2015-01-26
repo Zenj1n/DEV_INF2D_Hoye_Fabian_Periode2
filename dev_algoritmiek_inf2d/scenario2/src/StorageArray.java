@@ -31,13 +31,15 @@ public class StorageArray {
             System.out.println(array[i].leeftijd);
         }
         ms.mergeSort(array);
-        System.out.println("Gesorteerd");
+        System.out.println("Gesorteerd met mergesort");
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].leeftijd);
         }
         System.out.println("Linear search. 1  id, 2 leeftijd, 3 achternaam, 4 voornaam, 5 geslacht, 6 plaats, 7 email");
         keuze = in.nextInt();
         ls.linearSearch(array , keuze);
+
+        System.out.println("Ongesorteerde achternamen");
 
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].achternaam);
@@ -48,7 +50,7 @@ public class StorageArray {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].achternaam);
         }
-        System.out.println("Op welke achternaam wilt u zoeken (BinarySeacg)");
+        System.out.println("Op welke achternaam wilt u zoeken (BinarySearch)");
         String zoek = in.nextLine();
         bs.binarySearch(array, zoek, 0, 3);
     }

@@ -21,7 +21,7 @@ public class BinarySearch {
 }
 
 /*
- * Created by Fabian on 25-1-2015.
+ * Created by Fabian on 25-1-2015. probeerde met achternamen met dezelfde begin letter
 
 public class BinarySearch {
 

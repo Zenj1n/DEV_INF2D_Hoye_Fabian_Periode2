@@ -46,20 +46,24 @@ public class BinaryTree {
         Klant klant1  = new Klant(80, "Amon", "Jon", 32, "m", "Amsterdam", "hallo1@live.nl");
         Klant klant3  = new Klant(56, "Doe", "Joh", 44, "m", "Leiden", "hallo2@live.nl");
         Klant klant4  = new Klant(1, "Maeyer", "Bram", 8, "m", "Brabant", "hallo3@live.nl");
-        // build the simple tree from chapter 11.
-        System.out.println("Binary Tree Example");
-        System.out.println("Building tree with root value " + root.value);
+        Klant klant5  = new Klant(44, "Groot", "Jos", 8, "m", "Brabant", "hallo3@live.nl");
+        Klant klant6  = new Klant(77, "Klaas", "Jan", 8, "m", "Brabant", "hallo3@live.nl");
+
+        System.out.println("Bouw tree met root waarde" + root.value);
         insert(root, klant1);
         insert(root, klant2);
         insert(root, klant3);
         insert(root, klant4);
+        insert(root, klant5);
+        insert(root, klant6);
+
 
         System.out.println("Traversing tree in order");
         printInOrder(root);
-        System.out.println("Traversing tree front-to-back from location 7");
-        printFrontToBack(root, 7);
+        System.out.println("Traversing tree voor naar achter van locatie 23");
+        printFrontToBack(root, 23);
 
-        System.out.println("Deleterino");
+        System.out.println("Delete");
         delete(root, 1);
         printInOrder(root);
 
@@ -70,7 +74,7 @@ public class BinaryTree {
             if (node.left != null) {
                 insert(node.left, klant);
             } else {
-                System.out.println("  Inserted " + klant.getAchternaam() + " to left of "
+                System.out.println("  Inserted " + klant.getAchternaam() + " links van "
                         + node.value);
                 node.left = new Node(klant.getKlantid());
             }
@@ -78,7 +82,7 @@ public class BinaryTree {
             if (node.right != null) {
                 insert(node.right, klant);
             } else {
-                System.out.println("  Inserted " + klant.getAchternaam() + " to right of "
+                System.out.println("  Inserted " + klant.getAchternaam() + " rechts van "
                         + node.value);
                 node.right = new Node(klant.getKlantid());
             }
@@ -91,7 +95,6 @@ public class BinaryTree {
         }
 
         if (klantid == n.value) {
-            // n is the node to be removed
             if (n.getLeft() == null && n.getRight() == null) {
                 return null;
             }
@@ -102,7 +105,6 @@ public class BinaryTree {
                 return n.getLeft();
             }
 
-            // if we get here, then n has 2 children
             Node smallVal = n.getRight();
 
             n.setValue(smallVal.value);
@@ -129,12 +131,6 @@ public class BinaryTree {
         }
     }
 
-    /**
-     * uses in-order traversal when the origin is less than the node's value
-     *
-     * uses reverse-order traversal when the origin is greater than the node's
-     * order
-     */
     public void printFrontToBack(Node node, int camera) {
         if (node == null)
             return;
@@ -149,7 +145,7 @@ public class BinaryTree {
             System.out.println("  Traversed " + node.value);
             printFrontToBack(node.left, camera);
         } else {
-            // order doesn't matter
+            // order maakt niet uit
             printFrontToBack(node.left, camera);
             printFrontToBack(node.right, camera);
         }
