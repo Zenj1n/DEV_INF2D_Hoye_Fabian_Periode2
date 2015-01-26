@@ -109,8 +109,6 @@ public class Bestelling extends Klant{
 
         int compleet_tijd_ob = Integer.parseInt(compleet_tijd.replace(":",""));
         int current_tijd_ob = Integer.parseInt(current_tijd.replace(":",""));
-        System.out.println(compleet_tijd);
-        System.out.println(current_tijd);
         Integer i = 0;
 
         for (i = 0; i < queue.size(); i++){

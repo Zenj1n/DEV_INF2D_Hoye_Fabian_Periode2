@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algoritmiek_Hoye_Fabian_INF2D.iml" filepath="$PROJECT_DIR$/Algoritmiek_Hoye_Fabian_INF2D.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scenario1/scenario1.iml" filepath="$PROJECT_DIR$/scenario1/scenario1.iml" />
+    </modules>
   </component>
 </project>
