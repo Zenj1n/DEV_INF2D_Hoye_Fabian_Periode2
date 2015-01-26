@@ -14,27 +14,22 @@ import java.util.Timer;
 
 
 public class Bestelling extends Klant{
-     Random randomGenerator = new Random();
+    static Random randomGenerator = new Random();
 
-     int klantid = randomGenerator.nextInt(1000);
-     int bestellingid = randomGenerator.nextInt(1000);
+    static int klantid = randomGenerator.nextInt(1000);
+    static int bestellingid = randomGenerator.nextInt(1000);
 
-     boolean Verwerking;
-     String Duur = "1 minuut";
+    static String Duur = "1 minuut";
 
-
-     String compleet_tijd = "";
-     String start_tijd = "";
-
+    static String compleet_tijd = "";
+    static String start_tijd = "";
 
     public static void main(String args[])
     {
-        Bestelling bs = new Bestelling();
-
-        bs.kiesOptie();
+        Bestelling.kiesOptie();
     }
 
-    public void kiesOptie(){
+    public static void kiesOptie(){
         Scanner in = new Scanner(System.in);
         Integer inputkeuze;
 
@@ -42,24 +37,23 @@ public class Bestelling extends Klant{
         inputkeuze = in.nextInt();
 
         if (inputkeuze == 1){
-            bekijkQueue();
+            Bestelling.bekijkQueue();
         }
         if (inputkeuze == 2){
-            voegKlant();
+            Bestelling.voegKlant();
         }
         if (inputkeuze == 3){
-            updateQueue();
+            Bestelling.updateQueue();
         }
     }
-    public  void bekijkQueue(){
+
+    public static void bekijkQueue(){
         Klant test = Klant.getStreamInstance();
         System.out.println("Queue is momenteel:" + test.get());
-        kiesOptie();
+        Bestelling.kiesOptie();
     }
 
-    public  void voegKlant(){
-        boolean Compleet;
-        boolean Dadelijk;
+    public static void voegKlant(){
         Klant test = Klant.getStreamInstance();
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
@@ -97,43 +91,42 @@ public class Bestelling extends Klant{
         compleet_tijd = sdf.format(cal2.getTime());
         start_tijd = sdf.format(cal.getTime());
 
-        Verwerking = true;
-        Dadelijk = true;
-        Compleet = false;
-
         test.addKlant(voornaam + " " + achternaam + " Klant id: " + klantid + " bestelling id: " + bestellingid + " klaar rond: "
                 + compleet_tijd + " start tijd: "+ start_tijd+ " Verwerking: " + Verwerking + " Dadelijk: " + Dadelijk + " Compleet :"
                 + Compleet + " Bestelling klaar in: " + Duur + "Na starttijd");
         System.out.println("Queue is momenteel:" + test.get());
 
-        kiesOptie();
+        Bestelling.kiesOptie();
 
     }
 
-    public  void updateQueue() {
-        boolean Compleet;
-        boolean Dadelijk;
+    public static void updateQueue(){
         Klant test = Klant.getStreamInstance();
         Calendar cal = Calendar.getInstance();
 
         DateFormat sdf = new SimpleDateFormat("HH:mm");
         String current_tijd = sdf.format(cal.getTime());
 
+        int compleet_tijd_ob = Integer.parseInt(compleet_tijd.replace(":",""));
+        int current_tijd_ob = Integer.parseInt(current_tijd.replace(":",""));
         Integer i = 0;
 
-        for (i = 0; i < queue.size(); i++) {
-            if (current_tijd != compleet_tijd) {
+        for (i = 0; i < queue.size(); i++){
+            if (current_tijd_ob <= compleet_tijd_ob)
+            {
                 Verwerking = false;
                 Dadelijk = false;
-                Compleet = true;
+                Compleet= true;
+
                 System.out.println("De volgende klant is klaar: " + Compleet + test.poll());
                 System.out.println("Queue is momenteel:" + test.get());
-            } else {
+            }
+            else
+            {
                 System.out.println("Queue is momenteel:" + test.get());
             }
         }
-        kiesOptie();
-
+        Bestelling.kiesOptie();
     }
 }
 
