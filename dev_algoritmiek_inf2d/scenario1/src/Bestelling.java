@@ -14,25 +14,27 @@ import java.util.Timer;
 
 
 public class Bestelling extends Klant{
-    static Random randomGenerator = new Random();
+     Random randomGenerator = new Random();
 
-    static int klantid = randomGenerator.nextInt(1000);
-    static int bestellingid = randomGenerator.nextInt(1000);
+     int klantid = randomGenerator.nextInt(1000);
+     int bestellingid = randomGenerator.nextInt(1000);
 
-    static boolean Verwerking;
-    static String Duur = "1 minuut";
-    static boolean Compleet;
-    static boolean Dadelijk;
+     boolean Verwerking;
+     String Duur = "1 minuut";
 
-    static String compleet_tijd = "";
-    static String start_tijd = "";
+
+     String compleet_tijd = "";
+     String start_tijd = "";
+
 
     public static void main(String args[])
     {
-        Bestelling.kiesOptie();
+        Bestelling bs = new Bestelling();
+
+        bs.kiesOptie();
     }
 
-    public static void kiesOptie(){
+    public void kiesOptie(){
         Scanner in = new Scanner(System.in);
         Integer inputkeuze;
 
@@ -40,23 +42,24 @@ public class Bestelling extends Klant{
         inputkeuze = in.nextInt();
 
         if (inputkeuze == 1){
-            Bestelling.bekijkQueue();
+            bekijkQueue();
         }
         if (inputkeuze == 2){
-            Bestelling.voegKlant();
+            voegKlant();
         }
         if (inputkeuze == 3){
-            Bestelling.updateQueue();
+            updateQueue();
         }
     }
-
-    public static void bekijkQueue(){
+    public  void bekijkQueue(){
         Klant test = Klant.getStreamInstance();
         System.out.println("Queue is momenteel:" + test.get());
-        Bestelling.kiesOptie();
+        kiesOptie();
     }
 
-    public static void voegKlant(){
+    public  void voegKlant(){
+        boolean Compleet;
+        boolean Dadelijk;
         Klant test = Klant.getStreamInstance();
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
@@ -103,11 +106,13 @@ public class Bestelling extends Klant{
                 + Compleet + " Bestelling klaar in: " + Duur + "Na starttijd");
         System.out.println("Queue is momenteel:" + test.get());
 
-        Bestelling.kiesOptie();
+        kiesOptie();
 
     }
 
-    public static void updateQueue(){
+    public  void updateQueue() {
+        boolean Compleet;
+        boolean Dadelijk;
         Klant test = Klant.getStreamInstance();
         Calendar cal = Calendar.getInstance();
 
@@ -116,21 +121,19 @@ public class Bestelling extends Klant{
 
         Integer i = 0;
 
-        for (i = 0; i < queue.size(); i++){
-            if (current_tijd != compleet_tijd)
-            {
+        for (i = 0; i < queue.size(); i++) {
+            if (current_tijd != compleet_tijd) {
                 Verwerking = false;
                 Dadelijk = false;
                 Compleet = true;
                 System.out.println("De volgende klant is klaar: " + Compleet + test.poll());
                 System.out.println("Queue is momenteel:" + test.get());
-            }
-            else
-            {
+            } else {
                 System.out.println("Queue is momenteel:" + test.get());
             }
         }
-        Bestelling.kiesOptie();
+        kiesOptie();
+
     }
 }
 

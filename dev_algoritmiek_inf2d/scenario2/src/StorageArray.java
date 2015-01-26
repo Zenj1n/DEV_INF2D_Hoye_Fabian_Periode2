@@ -21,10 +21,10 @@ public class StorageArray {
 
         int keuze;
 
-        sa.addInfo(array, "Amon", "Jon", 32, "m", "Amsterdam", "hallo1@live.nl");
+        sa.addInfo(array, "Aim", "Jon", 32, "m", "Amsterdam", "hallo1@live.nl");
         sa.addInfo(array, "Boe", "Jon", 89, "v", "Amsterdam", "hallo1@live.nl");
-        sa.addInfo(array, "Boe", "Joh", 44, "m", "Leiden", "hallo2@live.nl");
-        sa.addInfo(array, "Cena", "Mike", 8, "m", "Brabant", "hallo3@live.nl");
+        sa.addInfo(array, "Doe", "Joh", 12, "m", "Leiden", "hallo2@live.nl");
+        sa.addInfo(array, "Cena", "John", 8, "m", "Brabant", "hallo3@live.nl");
 
         System.out.println("Ongesorteerd");
         for (int i = 0; i < array.length; i++) {
@@ -45,8 +45,9 @@ public class StorageArray {
             System.out.println(array[i].achternaam);
         }
 
-        is.insertionSort(array);
         System.out.println("Gesorteerd met de insertion sort op achternaam");
+        is.insertionSort(array);
+
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i].achternaam);
         }

@@ -9,7 +9,7 @@ public class InsertionSort {
             int position = index;
 
             //  Shift larger values to the right
-
+            //  kijkt alleen naar de laatste
             while (position > 0 && (key.getInt(key.achternaam.substring(0, 1), array[position - 1].achternaam.substring(0, 1))) > 0) {
                 array[position] = array[position - 1];
                 position--;
